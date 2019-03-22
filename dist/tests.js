@@ -19,5 +19,5 @@ res = index_1.getAlphabeticalRange('y', 'a', 3);
 console.log(res);
 res = index_1.getAlphabeticalRange('a', 'z', 3);
 console.log(res);
-res = index_1.getAlphabeticalRange('-', 'z', 3);
+res = index_1.getAlphabeticalRange('l', 'z', 3);
 console.log(res);

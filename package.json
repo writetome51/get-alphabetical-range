@@ -14,10 +14,11 @@
     "classes"
   ],
   "author": "Steve Thompson",
-  "homepage": "https://github.com/writetome51/get-alphabeticals-ascending-descending#readme",
+  "homepage": "https://github.com/writetome51/get-alphabetical-range#readme",
   "license": "MIT",
   "dependencies": {
+    "@writetome51/array-get-copy": "~1.1.2",
     "@writetome51/array-get-indexes": "~1.0.1",
-    "@writetome51/array-get-copy": "~1.1.2"
+    "@writetome51/not": "^1.0.5"
   }
 }

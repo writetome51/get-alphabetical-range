@@ -14,18 +14,15 @@ getAlphabeticalRange('f', 'a');
 ```
 
 ## Installation
-`npm i  @writetome51/get-alphabeticals-ascending-descending`
+`npm i  @writetome51/get-alphabetical-range`
 
 ## Loading
 ```ts
 // if using TypeScript:
-import {getAlphabeticalsAscending, getAlphabeticalsDescending} 
-    from '@writetome51/get-alphabeticals-ascending-descending';
+import {getAlphabeticalRange} from '@writetome51/get-alphabetical-range';
 // if using ES5 JavaScript:
-var getAlphabeticalsAscending = 
-    require('@writetome51/get-alphabeticals-ascending-descending').getAlphabeticalsAscending;
-var getAlphabeticalsDescending = 
-    require('@writetome51/get-alphabeticals-ascending-descending').getAlphabeticalsDescending;
+var getAlphabeticalRange = 
+    require('@writetome51/get-alphabetical-range').getAlphabeticalRange;
 ```
 
 ## License

@@ -27,5 +27,5 @@ res = getAlphabeticalRange('a', 'z', 3);
 console.log(res);
 
 
-res = getAlphabeticalRange('-', 'z', 3);
+res = getAlphabeticalRange('l', 'z', 3);
 console.log(res);
