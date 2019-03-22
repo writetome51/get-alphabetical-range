@@ -1,0 +1,22 @@
+{
+  "name": "@writetome51/get-alphabeticals-ascending-descending",
+  "version": "1.0.0",
+  "description": "2 functions, one that returns array of alphabetical characters in ascending order, and one that returns array of alphabetical characters in descending order",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [
+    "basic",
+    "data-handling",
+    "functions",
+    "classes"
+  ],
+  "author": "Steve Thompson",
+  "homepage": "https://github.com/writetome51/get-alphabeticals-ascending-descending#readme",
+  "license": "MIT",
+  "dependencies": {
+    "@writetome51/array-get-indexes": "~1.0.1"
+  }
+}
