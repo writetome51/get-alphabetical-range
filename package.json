@@ -1,7 +1,7 @@
 {
-  "name": "@writetome51/get-alphabeticals-ascending-descending",
+  "name": "@writetome51/get-alphabetical-range",
   "version": "1.0.0",
-  "description": "2 functions, one that returns array of alphabetical characters in ascending order, and one that returns array of alphabetical characters in descending order",
+  "description": "Returns array of alphabetical characters, starting and ending with characters of your choice",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -17,6 +17,7 @@
   "homepage": "https://github.com/writetome51/get-alphabeticals-ascending-descending#readme",
   "license": "MIT",
   "dependencies": {
-    "@writetome51/array-get-indexes": "~1.0.1"
+    "@writetome51/array-get-indexes": "~1.0.1",
+    "@writetome51/array-get-copy": "~1.1.2"
   }
 }

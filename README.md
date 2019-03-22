@@ -1,19 +1,15 @@
-# getAlphabeticalsAscending(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;startingLetter,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;endingLetter,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;increment? = 1<br>): string[] 
+# getAlphabeticalRange(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;startingLetter,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;endingLetter,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;increment? = 1<br>): string[] 
 
-Returns array of letters in ascending order, i.e, ["a", "b", "c", "d", "e", "f" ...]
-
-# getAlphabeticalsDescending(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;startingLetter,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;endingLetter,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;increment? = 1<br>): string[]
-
-Returns array of letters in descending order, i.e, ["z", "y", "x", "w", "v", "u" ...]
-
+Returns array of letters in ascending or descending order, depending on what  
+`startingLetter` and `endingLetter` are, and which comes first in the alphabet.
 
 
 ## Examples
 ```ts
-getAlphabeticalsAscending('a', 'f');
+getAlphabeticalRange('a', 'f');
     // --> ["a", "b", "c", "d", "e", "f"]
     
-getAlphabeticalsDescending('f', 'a');
+getAlphabeticalRange('f', 'a');
     // --> ["f", "e", "d", "c", "b", "a"]
 ```
 

@@ -1,11 +1,4 @@
-export declare function getAlphabeticalsAscending(
-	startingLetter: string,
-	endingLetter: string,
-	increment?: number
-): string[];
-
-
-export declare function getAlphabeticalsDescending(
+export declare function getAlphabeticalRange(
 	startingLetter: string,
 	endingLetter: string,
 	increment?: number
