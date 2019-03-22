@@ -1,4 +1,3 @@
-import { getFirstIndexOf } from '@writetome51/array-get-indexes';
 import { getCopy } from '@writetome51/array-get-copy';
 import { not } from '@writetome51/not';
 
@@ -7,13 +6,13 @@ import { not } from '@writetome51/not';
 
 export function getAlphabeticalRange(startingLetter, endingLetter, increment = 1): string[] {
 	__validateArguments();
-	let range = [];
 	let alphabetCopy = getCopy(alphabet);
 
 	if (endingLetter < startingLetter) alphabetCopy.reverse();
 
-	let index = getFirstIndexOf(startingLetter, alphabetCopy);
-	let lastIndex = getFirstIndexOf(endingLetter, alphabetCopy);
+	let index = alphabetCopy.indexOf(startingLetter);
+	let lastIndex = alphabetCopy.indexOf(endingLetter);
+	let range = [];
 
 	while (index <= lastIndex) {
 		range.push(alphabetCopy[index]);

@@ -11,6 +11,9 @@ getAlphabeticalRange('a', 'f');
     
 getAlphabeticalRange('f', 'a');
     // --> ["f", "e", "d", "c", "b", "a"]
+    
+getAlphabeticalRange('a', 'o', 2);
+    // --> [ 'a', 'c', 'e', 'g', 'i', 'k', 'm', 'o' ]
 ```
 
 ## Installation

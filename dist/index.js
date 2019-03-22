@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var array_get_indexes_1 = require("@writetome51/array-get-indexes");
 var array_get_copy_1 = require("@writetome51/array-get-copy");
 var not_1 = require("@writetome51/not");
 // Returns array of letters in ascending or descending order, depending on what
@@ -8,12 +7,12 @@ var not_1 = require("@writetome51/not");
 function getAlphabeticalRange(startingLetter, endingLetter, increment) {
     if (increment === void 0) { increment = 1; }
     __validateArguments();
-    var range = [];
     var alphabetCopy = array_get_copy_1.getCopy(exports.alphabet);
     if (endingLetter < startingLetter)
         alphabetCopy.reverse();
-    var index = array_get_indexes_1.getFirstIndexOf(startingLetter, alphabetCopy);
-    var lastIndex = array_get_indexes_1.getFirstIndexOf(endingLetter, alphabetCopy);
+    var index = alphabetCopy.indexOf(startingLetter);
+    var lastIndex = alphabetCopy.indexOf(endingLetter);
+    var range = [];
     while (index <= lastIndex) {
         range.push(alphabetCopy[index]);
         index += increment;
