@@ -17,8 +17,8 @@ export function getAlphabeticalRange(startingLetter, endingLetter, increment = 1
 
 	let range = [];
 	while (startingIndex < alphabetCopy.length) {
-
 		range.push(alphabetCopy[startingIndex]);
+
 		if (alphabetCopy[startingIndex] === endingLetter) break;
 		startingIndex += increment;
 	}
