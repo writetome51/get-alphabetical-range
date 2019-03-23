@@ -1,31 +1,37 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var alphabet_1 = require("./privy/alphabet");
 var array_get_copy_1 = require("@writetome51/array-get-copy");
+var get_index_for_reversed_array_1 = require("@writetome51/get-index-for-reversed-array");
 var not_1 = require("@writetome51/not");
 // Returns array of letters in ascending or descending order, depending on what
 // startingLetter and endingLetter are, and which comes first in the alphabet.
 function getAlphabeticalRange(startingLetter, endingLetter, increment) {
     if (increment === void 0) { increment = 1; }
     __validateArguments();
-    var alphabetCopy = array_get_copy_1.getCopy(exports.alphabet);
+    var startingIndex = alphabet_1.alphabetToIndexMap[startingLetter];
+    var alphabetCopy = array_get_copy_1.getCopy(alphabet_1.alphabet); // in case its order must be reversed.
     if (endingLetter < startingLetter)
-        alphabetCopy.reverse();
-    var index = alphabetCopy.indexOf(startingLetter);
-    var lastIndex = alphabetCopy.indexOf(endingLetter);
+        reverseAlphabet_and_startingIndex();
     var range = [];
-    while (index <= lastIndex) {
-        range.push(alphabetCopy[index]);
-        index += increment;
+    while (startingIndex < alphabetCopy.length) {
+        range.push(alphabetCopy[startingIndex]);
+        if (alphabetCopy[startingIndex] === endingLetter)
+            break;
+        startingIndex += increment;
     }
     return range;
     function __validateArguments() {
         startingLetter = startingLetter.toLowerCase();
         endingLetter = endingLetter.toLowerCase();
-        if (not_1.not(exports.alphabet.includes(startingLetter)) || not_1.not(exports.alphabet.includes(endingLetter))) {
+        // @ts-ignore
+        if (not_1.not(alphabet_1.alphabet.includes(startingLetter)) || not_1.not(alphabet_1.alphabet.includes(endingLetter))) {
             throw new Error('Either the starting letter or ending letter was not a valid alphabetical character');
         }
     }
+    function reverseAlphabet_and_startingIndex() {
+        alphabetCopy.reverse();
+        startingIndex = get_index_for_reversed_array_1.getIndexForReversedArray(startingIndex, alphabetCopy.length);
+    }
 }
 exports.getAlphabeticalRange = getAlphabeticalRange;
-exports.alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o",
-    "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
