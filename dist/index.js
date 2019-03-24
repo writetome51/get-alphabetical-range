@@ -27,6 +27,8 @@ function getAlphabeticalRange(startingLetter, endingLetter, increment) {
             throw new Error('Either the starting letter or ending letter was not a valid alphabetical character');
         }
         errorIfNotInteger_1.errorIfNotInteger(increment);
+        if (increment < 1)
+            throw new Error('The increment parameter cannot be less than 1');
     }
     function __chooseLowercaseOrUppercaseAlphabet() {
         var lowerOrUpper = 'lower';

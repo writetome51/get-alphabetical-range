@@ -54,9 +54,100 @@ if (arrays_match_1.arraysMatch(res, ['Z', 'Y', 'X', 'W', 'V', 'U', 'T', 'S', 'R'
     console.log('test 10 passed');
 else
     console.log('test 10 FAILED');
-res = index_1.getAlphabeticalRange('Z', 'j', 3);
-console.log(res);
-if (arrays_match_1.arraysMatch(res, ['Z', 'W', 'T', 'Q', 'N', 'K']))
-    console.log('test 10 passed');
+res = index_1.getAlphabeticalRange('Z', 'J');
+if (arrays_match_1.arraysMatch(res, ['Z', 'Y', 'X', 'W', 'V', 'U', 'T', 'S', 'R',
+    'Q', 'P', 'O', 'N', 'M', 'L', 'K', 'J']))
+    console.log('test 10A passed');
 else
-    console.log('test 10 FAILED');
+    console.log('test 10A FAILED');
+res = index_1.getAlphabeticalRange('Z', 'j', 3);
+if (arrays_match_1.arraysMatch(res, ['Z', 'W', 'T', 'Q', 'N', 'K']))
+    console.log('test 11 passed');
+else
+    console.log('test 11 FAILED');
+res = index_1.getAlphabeticalRange('a', 'z', 10);
+if (arrays_match_1.arraysMatch(res, ['a', 'k', 'u']))
+    console.log('test 12 passed');
+else
+    console.log('test 12 FAILED');
+res = index_1.getAlphabeticalRange('z', 'a', 10);
+if (arrays_match_1.arraysMatch(res, ['z', 'p', 'f']))
+    console.log('test 13 passed');
+else
+    console.log('test 13 FAILED');
+res = index_1.getAlphabeticalRange('z', 'a', 25);
+if (arrays_match_1.arraysMatch(res, ['z', 'a']))
+    console.log('test 14 passed');
+else
+    console.log('test 14 FAILED');
+res = index_1.getAlphabeticalRange('a', 'z', 26);
+if (arrays_match_1.arraysMatch(res, ['a']))
+    console.log('test 15 passed');
+else
+    console.log('test 15 FAILED');
+var errorTriggered = false;
+try {
+    res = index_1.getAlphabeticalRange('a', 'z', 0);
+}
+catch (e) {
+    errorTriggered = true;
+}
+if (errorTriggered)
+    console.log('test 16 passed');
+else
+    console.log('test 16 FAILED');
+errorTriggered = false;
+try {
+    res = index_1.getAlphabeticalRange('', 'z');
+}
+catch (e) {
+    errorTriggered = true;
+}
+if (errorTriggered)
+    console.log('test 17 passed');
+else
+    console.log('test 17 FAILED');
+errorTriggered = false;
+try {
+    res = index_1.getAlphabeticalRange('a', '');
+}
+catch (e) {
+    errorTriggered = true;
+}
+if (errorTriggered)
+    console.log('test 18 passed');
+else
+    console.log('test 18 FAILED');
+errorTriggered = false;
+try {
+    res = index_1.getAlphabeticalRange(1, 'z');
+}
+catch (e) {
+    errorTriggered = true;
+}
+if (errorTriggered)
+    console.log('test 19 passed');
+else
+    console.log('test 19 FAILED');
+errorTriggered = false;
+try {
+    res = index_1.getAlphabeticalRange('a', 1);
+}
+catch (e) {
+    errorTriggered = true;
+}
+if (errorTriggered)
+    console.log('test 20 passed');
+else
+    console.log('test 20 FAILED');
+errorTriggered = false;
+try {
+    res = index_1.getAlphabeticalRange('aa', 'z');
+}
+catch (e) {
+    errorTriggered = true;
+}
+if (errorTriggered)
+    console.log('test 21 passed');
+else
+    console.log('test 21 FAILED');

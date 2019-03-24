@@ -33,6 +33,7 @@ export function getAlphabeticalRange(startingLetter, endingLetter, increment = 1
 				'Either the starting letter or ending letter was not a valid alphabetical character');
 		}
 		errorIfNotInteger(increment);
+		if (increment < 1) throw new Error('The increment parameter cannot be less than 1');
 	}
 
 
