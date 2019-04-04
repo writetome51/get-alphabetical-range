@@ -1,6 +1,6 @@
 {
   "name": "@writetome51/get-alphabetical-range",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Returns array of alphabetical characters, starting and ending with characters of your choice",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -8,10 +8,14 @@
     "build": "tsc"
   },
   "keywords": [
-    "basic",
-    "data-handling",
-    "functions",
-    "classes"
+    "array",
+    "alpha",
+    "alphabet",
+    "alphabetical",
+    "letters",
+    "characters",
+    "english",
+    "range"
   ],
   "author": "Steve Thompson",
   "homepage": "https://github.com/writetome51/get-alphabetical-range#readme",
@@ -21,7 +25,7 @@
   },
   "dependencies": {
     "@writetome51/array-get-copy": "~1.1.2",
-    "@writetome51/get-index-for-reversed-array": "~1.0.0",
+    "@writetome51/get-index-for-reversed-array": "~1.0.1",
     "@writetome51/not": "~1.0.5",
     "alphabet": "~1.0.0",
     "basic-data-handling": "~1.0.15"
