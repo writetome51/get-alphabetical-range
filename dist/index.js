@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 // @ts-ignore
 var alphabet = require('alphabet');
-var errorIfNotInteger_1 = require("basic-data-handling/errorIfNotInteger");
+var error_if_not_integer_1 = require("error-if-not-integer");
 var alphabetToIndexMap_1 = require("./privy/alphabetToIndexMap");
 var array_get_copy_1 = require("@writetome51/array-get-copy");
 var get_index_for_reversed_array_1 = require("@writetome51/get-index-for-reversed-array");
@@ -14,11 +14,10 @@ var not_1 = require("@writetome51/not");
 function getAlphabeticalRange(startingLetter, endingLetter, increment) {
     if (increment === void 0) { increment = 1; }
     __validateArguments();
-    var alphbt; // to be used as a copy of alphabet.
-    __chooseLowercaseOrUppercaseAlphabet();
+    var alphabetCopy = __getLowercaseOrUppercaseAlphabet();
     var _a = __chooseAlphabetOrder_and_returnStartingEndingIndexes(), startingIndex = _a[0], endingIndex = _a[1];
     for (var range = []; startingIndex <= endingIndex; startingIndex += increment) {
-        range.push(alphbt[startingIndex]);
+        range.push(alphabetCopy[startingIndex]);
     }
     return range;
     function __validateArguments() {
@@ -26,11 +25,11 @@ function getAlphabeticalRange(startingLetter, endingLetter, increment) {
         if (not_1.not(alphabet.includes(startingLetter)) || not_1.not(alphabet.includes(endingLetter))) {
             throw new Error('Either the starting letter or ending letter was not a valid alphabetical character');
         }
-        errorIfNotInteger_1.errorIfNotInteger(increment);
+        error_if_not_integer_1.errorIfNotInteger(increment);
         if (increment < 1)
             throw new Error('The increment parameter cannot be less than 1');
     }
-    function __chooseLowercaseOrUppercaseAlphabet() {
+    function __getLowercaseOrUppercaseAlphabet() {
         var lowerOrUpper = 'lower';
         if (alphabet.lower.includes(startingLetter))
             endingLetter = endingLetter.toLowerCase();
@@ -38,18 +37,18 @@ function getAlphabeticalRange(startingLetter, endingLetter, increment) {
             endingLetter = endingLetter.toUpperCase();
             lowerOrUpper = 'upper';
         }
-        alphbt = array_get_copy_1.getCopy(alphabet[lowerOrUpper]); // in case its order must be reversed.
+        return array_get_copy_1.getCopy(alphabet[lowerOrUpper]);
     }
     function __chooseAlphabetOrder_and_returnStartingEndingIndexes() {
         var startingIndex = alphabetToIndexMap_1.__alphabetToIndexMap[startingLetter.toLowerCase()];
         var endingIndex = alphabetToIndexMap_1.__alphabetToIndexMap[endingLetter.toLowerCase()];
-        if (endingLetter < startingLetter)
+        if (endingIndex < startingIndex)
             __reverseAlphabet_and_indexes();
         return [startingIndex, endingIndex];
         function __reverseAlphabet_and_indexes() {
-            alphbt.reverse();
-            startingIndex = get_index_for_reversed_array_1.getIndexForReversedArray(startingIndex, alphbt.length);
-            endingIndex = get_index_for_reversed_array_1.getIndexForReversedArray(endingIndex, alphbt.length);
+            alphabetCopy.reverse();
+            startingIndex = get_index_for_reversed_array_1.getIndexForReversedArray(startingIndex, alphabetCopy.length);
+            endingIndex = get_index_for_reversed_array_1.getIndexForReversedArray(endingIndex, alphabetCopy.length);
         }
     }
 }

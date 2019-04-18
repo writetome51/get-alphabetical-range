@@ -1,6 +1,6 @@
 // @ts-ignore
 let alphabet = require('alphabet');
-import { errorIfNotInteger } from 'basic-data-handling/errorIfNotInteger';
+import { errorIfNotInteger } from 'error-if-not-integer';
 import { __alphabetToIndexMap } from './privy/alphabetToIndexMap';
 import { getCopy } from '@writetome51/array-get-copy';
 import { getIndexForReversedArray } from '@writetome51/get-index-for-reversed-array';
@@ -15,13 +15,12 @@ import { not } from '@writetome51/not';
 export function getAlphabeticalRange(startingLetter, endingLetter, increment = 1): string[] {
 
 	__validateArguments();
-	let alphbt: string[]; // to be used as a copy of alphabet.
-	__chooseLowercaseOrUppercaseAlphabet();
-
+	let alphabetCopy = __getLowercaseOrUppercaseAlphabet();
+	
 	let [startingIndex, endingIndex] = __chooseAlphabetOrder_and_returnStartingEndingIndexes();
 
 	for (var range = []; startingIndex <= endingIndex; startingIndex += increment) {
-		range.push(alphbt[startingIndex]);
+		range.push(alphabetCopy[startingIndex]);
 	}
 	return range;
 
@@ -37,28 +36,28 @@ export function getAlphabeticalRange(startingLetter, endingLetter, increment = 1
 	}
 
 
-	function __chooseLowercaseOrUppercaseAlphabet() {
+	function __getLowercaseOrUppercaseAlphabet() {
 		let lowerOrUpper = 'lower';
 		if (alphabet.lower.includes(startingLetter)) endingLetter = endingLetter.toLowerCase();
 		else {
 			endingLetter = endingLetter.toUpperCase();
 			lowerOrUpper = 'upper';
 		}
-		alphbt = getCopy(alphabet[lowerOrUpper]); // in case its order must be reversed.
+		return getCopy(alphabet[lowerOrUpper]);
 	}
 
 
 	function __chooseAlphabetOrder_and_returnStartingEndingIndexes() {
 		let startingIndex = __alphabetToIndexMap[startingLetter.toLowerCase()];
 		let endingIndex = __alphabetToIndexMap[endingLetter.toLowerCase()];
-		if (endingLetter < startingLetter) __reverseAlphabet_and_indexes();
+		if (endingIndex < startingIndex) __reverseAlphabet_and_indexes();
 		return [startingIndex, endingIndex];
 
 
 		function __reverseAlphabet_and_indexes() {
-			alphbt.reverse();
-			startingIndex = getIndexForReversedArray(startingIndex, alphbt.length);
-			endingIndex = getIndexForReversedArray(endingIndex, alphbt.length);
+			alphabetCopy.reverse();
+			startingIndex = getIndexForReversedArray(startingIndex, alphabetCopy.length);
+			endingIndex = getIndexForReversedArray(endingIndex, alphabetCopy.length);
 		}
 	}
 
